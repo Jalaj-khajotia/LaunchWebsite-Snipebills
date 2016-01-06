@@ -114,15 +114,18 @@
                   </ul>
                 </div>
                 <div class="section-footer">
-                  <a href="#subscribe-form-popup" id="pop-with-subscribe-form" class="btn btn-default btn-lg shadow">subscribe</a> <!-- subscribe button -->
+                  <a href="#subscribe-form-popup" id="pop-with-subscribe-form" class="btn btn-default btn-lg shadow">Get Notified</a> <!-- subscribe button -->
                   <a href="#" class="btn btn-theme btn-lg shadow" data-link-to="#about">about us</a> <!-- link button -->
                   <!-- subscribe form-->
                   <div id="subscribe-form-popup" class="mfp-hide white-popup-block">
-                    <form id="subscribe-form" class="border-form">
-                      <h3 class="form-heading">Newsletter</h3>
+                    <form id="subscribe-form" class="border-form" action="//formspree.io/jalajkhajotia@snipebills.com" method="POST">
+                      <h3 class="form-heading">Get early access to our services</h3>
                       <div class="form-group">
                         <div class="input-group">
-                          <input type="email" name="email" placeholder="enter your email" id="subscribe-email" class="form-control input-lg">
+                          <input type="email" name="_replyto" placeholder="enter your email" id="subscribe-email" class="form-control input-lg">
+                           <input type="hidden" name="_subject" value="Snipebills user subscription" />
+                      <input type="text" name="_gotcha" style="display:none" />
+                      <input type="hidden" name="_next" value="//snipebills.com/thanks.html" />
                           <span class="input-group-btn">
                             <button type="submit" class="btn btn-theme btn-lg">
                               SEND
@@ -130,7 +133,7 @@
                           </span>
                         </div>
                       </div>
-                      <label class="subscribe-notice" for="subscribe-email">subscribe to our newsletter</label>
+                      <label class="subscribe-notice" for="subscribe-email">We will notify you once we are operational</label>
                     </form>
                   </div>
                   <!-- /subscribe form-->
@@ -296,20 +299,24 @@
                     <!-- /social -->
                   </div>
                   <div class="col-md-7">
-                    <form id="contact-form" class="line-form">
+                    <form class="line-form" action="//formspree.io/jalajkhajotia@snipebills.com"
+      method="POST">
                       <div class="row form-group">
                         <div class="col-xs-6">
                           <input type="text" name="name" placeholder="name" id="contact-name" class="form-control input-lg">
                         </div>
                         <div class="col-xs-6">
-                          <input type="text" name="email" placeholder="e-mail" id="contact-email" class="form-control input-lg">
+                          <input type="email" name="_replyto" placeholder="your e-mail" id="contact-email" class="form-control input-lg">
                         </div>
                       </div>
-                      <div class="row form-group">
-                        <div class="col-md-12">
-                          <textarea name="message" rows="4" placeholder="message" id="contact-message" class="form-control input-lg"></textarea>
-                        </div>
-                      </div>
+                     <!--  <div class="row form-group">
+                       <div class="col-md-12">
+                         <textarea rows="4" name="name"  placeholder="message" id="contact-message" class="form-control input-lg"></textarea>
+                       </div>
+                     </div> -->
+                      <input type="hidden" name="_subject" value="Snipebills user subscription" />
+                      <input type="text" name="_gotcha" style="display:none" />
+                      <input type="hidden" name="_next" value="//snipebills.com/thanks.html" />
                       <button type="submit" class="btn btn-block btn-default btn-lg shadow border">Submit</button>
                       <div class="contact-notice">&nbsp;</div>
                     </form>

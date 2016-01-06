@@ -63,7 +63,7 @@ var __subscribeError = '<i class="icons fa fa-close error"></i> email address is
 var __mailChimp = false; // true = mailchimp form, false = php subscribe form
 var __mailChimpUrl = 'MAILCHIMP_POST_URL_HERE'; // mailchimp post url
 
-$.ajaxChimp.translations.eng = { // custom mailchimp message
+/*$.ajaxChimp.translations.eng = { // custom mailchimp message
   'submit': 'please wait',
   0: '<i class="icons fa fa-check"></i> we have sent you a confirmation email',
   1: '<i class="icons fa fa-close"></i> enter a valid e-mail address',
@@ -72,7 +72,7 @@ $.ajaxChimp.translations.eng = { // custom mailchimp message
   4: '<i class="icons fa fa-close"></i> e-mail address is not valid',
   5: '<i class="icons fa fa-close"></i> e-mail address is not valid'
 }
-
+*/
 // dedault message for reference
 
 // Submit Message

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Thanks for subscribing</title> 
+    <script>
+    try {
+        Typekit.load();
+    } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="/main.css">   
+    <meta name="viewport" content="initial-scale=1">
+</head>
+
+<body class="" id="card">
+    <noscript>
+    </noscript>
+    <nav>
+        <div class="menu">
+            <span class="item"><a href="snipebills.com">Home</a></span>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="container narrow card">
+            <div class="container" id="header">
+                <div class="col-1-1 header success">
+                    <img src="/thank-you-cartoon.png" style="width:300px" />
+                </div>
+            </div>
+            <div class="container">
+                <div class="col-1-1">
+                    <h2>We are working hard and will soon launch our services soon in Hyderabad, India.</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/vendor/jquery-1.11.3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.3/jquery.slicknav.min.js"></script>
+    <script>
+    /* top navbar */
+    var nav = $('body > nav')
+    nav.addClass('js')
+    nav.find('.menu').slicknav()
+    nav.find('h4').clone().prependTo('.slicknav_menu')
+
+    /* adding a shadow at the bottom of the menu bar only when not at the top */
+    var w = $(window)
+    w.scroll(function() {
+        var scrollPos = w.scrollTop()
+        if (scrollPos && !nav.hasClass('scrolled')) {
+            nav.addClass('scrolled')
+        } else if (!scrollPos) {
+            nav.removeClass('scrolled')
+        }
+    })
+
+    /* background-color should inherit, but CSS's "inherit" breaks z-index */
+    var bgcolor = $(document.body).css('background-color')
+    if (bgcolor.split(',').length == 4 || bgcolor == 'transparent') {
+        bgcolor = 'white'
+    }
+    nav.css('background-color', bgcolor);
+
+    
+    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.1/toastr.min.js"></script>
+    <script>
+    /* turning flask flash messages into js popup notifications */
+    var messages = []
+    toastr.options = {
+        positionClass: 'toast-top-center'
+    }
+    messages.forEach(function(m, i) {
+        var category = m[0] || 'info'
+        var text = m[1]
+        setTimeout(function() {
+            toastr[category](text)
+        }, (1 + i) * 1500)
+    })
+    </script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script>
+    var stripebutton = $('#stripe-upgrade')
+    if (stripebutton.length) {
+        var handler = StripeCheckout.configure(stripebutton.data())
+        stripebutton.on('click', function(e) {
+            handler.open({
+                token: function(token) {
+                    stripebutton.closest('form')
+                        .append('<input type="hidden" name="stripeToken" value="' + token.id + '">')
+                        .append('<input type="hidden" name="stripeEmail" value="' + token.email + '">')
+                        .submit()
+                }
+            })
+            e.preventDefault()
+        })
+    }
+
+    /* quick script for showing the resend confirmation form */
+    $('a.resend').on('click', function() {
+        $(this).hide()
+        $('form.resend').show()
+    })
+    </script>
+</body>
+
+</html>
