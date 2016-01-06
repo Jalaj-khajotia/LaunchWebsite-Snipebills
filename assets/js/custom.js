@@ -42,3 +42,25 @@ $(window)[_0x5825[12]](_0x5825[19], function() {
         };
     });
 });
+
+
+$(document).ready(function() {
+    $('#sendmail').click(function() {
+        var text = $('#emailtext').val();
+        var email = $('#contact-email').val();
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (email.match(mailformat)) {
+           $.ajax({
+                url: "//formspree.io/jalajkhajotia@snipebills.com",
+                method: "POST",
+                data: {
+                    message: email + "   " + text
+                },
+                dataType: "json"
+            });
+            $('#myModal').modal('show');
+            $('#emailtext').val("")
+            $('#contact-email').val("");
+        }
+    })
+});
